@@ -27,6 +27,13 @@ header {
 
 }
 
+.logo {
+    position: absolute;
+    color: whitesmoke;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
 .head-content {
     margin-bottom: 150px;
     color: whitesmoke;
@@ -42,7 +49,7 @@ header {
     width: 150px;
     height: 4px;
     margin: 10px auto;
-    background: red;
+    background: #ED1D24;
     border-radius: 5px;
 }
 
@@ -54,7 +61,7 @@ header {
 
 .ctn {
     padding: 3px 15px;
-    background: red;
+    background: #ED1D24;
     border-radius: 30px;
     color: whitesmoke;
 }
@@ -71,7 +78,7 @@ ul {
     width: 100%;
     padding: 20px;
     color: whitesmoke;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 
@@ -86,11 +93,11 @@ ul {
 .nav-links li {
     display: flex;
     align-items: flex-end;
-    margin: 0 30px;
+    margin: 30px;
 }
 
 .active {
-    color: red;
+    color: #ED1D24;
     text-decoration: underline;
     font-weight: bold;
 }
@@ -154,7 +161,8 @@ p {
 .events .ctn {
     margin-top: 30px;
 }
-.explore{
+
+.explore {
     width: 100%;
     height: 100vh;
     background-image: url("https://images.pexels.com/photos/2895566/pexels-photo-2895566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
@@ -164,76 +172,90 @@ p {
     display: flex;
     align-items: center;
 }
-.explore-content{
-    width:60%;
-    padding:50px;
-    color:whitesmoke;
+
+.explore-content {
+    width: 60%;
+    padding: 50px;
+    color: whitesmoke;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.explore-content h1{
-        font-size: 7vmin;
-        
+
+.explore-content h1 {
+    font-size: 7vmin;
+
 }
 
-.explore-content .line{
-    margin-bottom:50px;
+.explore-content .line {
+    margin-bottom: 50px;
 }
-.explore-content p{
+
+.explore-content p {
     font-size: 3vmin;
-    color:white;
+    color: white;
 }
-.explore-content .ctn{
+
+.explore-content .ctn {
     margin-top: 40px;
 }
-.content-col{
+
+.content-col {
     width: 60%;
 }
-.imgage-col{
+
+.imgage-col {
     width: 30%;
 }
-.tours .image-gallery{
+
+.tours .image-gallery {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     align-items: center;
 }
-.image-gallery img{
-    max-width:230px;
+
+.image-gallery img {
+    max-width: 230px;
     margin: 10px;
 }
 
-.content-col h1{
+.content-col h1 {
     font-size: 7vmin;
-    color:rgb(37, 36, 36);
+    color: rgb(37, 36, 36);
     font-weight: bold;
     text-align: center;
 }
-.content-col .line{
+
+.content-col .line {
     margin-left: -1px;
 }
-.content-col p{
-    padding:0;
-    margin:30px auto;
+
+.content-col p {
+    padding: 0;
+    margin: 30px auto;
 }
-.content-col .ctn{
+
+.content-col .ctn {
     margin-left: -100px;
 }
-.footer{
-    width:100%;
-    min-height:100px;
-    padding:20px 70px;
-    margin:0;
+
+.footer {
+    width: 100%;
+    min-height: 100px;
+    padding: 20px 70px;
+    margin: 0;
     background: rgb(19, 6, 19);
     text-align: center;
 }
-.footer p{
-    color:rgb(207, 207, 207);
-    margin:20px auto;
+
+.footer p {
+    color: rgb(207, 207, 207);
+    margin: 20px auto;
     padding: 200px auto;
 
 }
+
 /*mobile */
 @media only screen and (max-width:850px) {
     .navbar {
@@ -242,7 +264,7 @@ p {
 
     .logo {
         position: absolute;
-        top: 30px;
+
         left: 30px;
 
     }
@@ -270,51 +292,63 @@ p {
         margin: 30px auto;
 
     }
-    .row{
+
+    .row {
         flex-direction: column;
     }
-    .row .col{
+
+    .row .col {
         margin: 20px auto;
     }
-    .col img{
+
+    .col img {
         max-width: 90%;
     }
-    .explore-content{
+
+    .explore-content {
         width: 100%;
     }
-    .tours .col{
+
+    .tours .col {
         width: 100%;
     }
-    .image-gallery{
+
+    .image-gallery {
         justify-content: center;
         align-items: center;
     }
-    .image-gallery img{
+
+    .image-gallery img {
         width: 90%;
         height: 100%;
     }
-    .footer{
+
+    .footer {
         padding: 10px;
     }
-    .content-col .ctn{
+
+    .content-col .ctn {
         margin-left: 8%;
     }
 }
 
 /*animation*/
 
-img{
+img {
     transition: transform .3s ease;
 }
-img:hover{
+
+img:hover {
     transform: scale(1.1);
 }
-.ctn:hover{
+
+.ctn:hover {
     background: whitesmoke;
-    color: red;
+    color: #ED1D24;
     box-shadow: 2px 2px 5px rgb(17, 17, 17);
 }
-li:hover{
-    color:red;
+
+li:hover {
+    color: #ED1D24;
     cursor: pointer;
 }
