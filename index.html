@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Adventure_files/styles.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h3 class="logo">ADVENTURE</h3>
+        <ul class="nav-links">
+            <li class="active"><a href="#"></a>Home</li>
+            <li><a href="#"></a>Tours</li>
+            <li><a href="#"></a>Explore</li>
+            <li><a href="#"></a>About</li>
+            <li class="ctn"><a href="#"></a>Contact</li>
+        </ul>
+        <img class="menu-btn"
+            src="Adventure_files/hamburger.png"
+            alt="">
+    </nav>
+    <header>
+        <div class="head-content">
+            <h2>Explore the colorful World</h2>
+            <div class="line"></div>
+            <h1>A WONDERFUL GIFT</h1>
+            <a href="#" class="ctn">Learn More</a>
+        </div>
+    </header>
+
+    <section class="events">
+        <div class="title">
+            <h1>Upcoming events</h1>
+            <div class="line"></div>
+        </div>
+        <div class="row">
+
+            <div class="col">
+                <img
+                    src="Adventure_files/everest.jpg">
+                <h4>Everest</h4>
+                <p>Travelers who want to see the tallest mountain in the world but don’t have the time or ability to
+                    trek there will love this Everest scenic flight.Mount Everest Expedition is without a doubt a
+                    lifetime opportunity.</p>
+                <a href="#" class="ctn">Learn More</a>
+            </div>
+
+            <div class="col">
+                <img
+                    src="Adventure_files/paris.jpeg">
+                <h4>Paris</h4>
+                <p>Behold yourself as you are about to explore a different side of yourself when you touchdown at Paris.
+                    Paris is going to take you on a rollercoaster ride. Here is a list of few places that you might like
+                    to visit in the city of love</p>
+                <a href="#" class="ctn">Learn More</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="explore">
+        <div class="explore-content">
+            <h1>EXPLORE THE WORLD</h1>
+            <div class="line"></div>
+            <p>“STUFF YOUR EYES WITH WONDER,’ HE SAID, ‘LIVE AS IF YOU’D DROP DEAD IN TEN SECONDS. SEE THE WORLD. IT’S
+                MORE FANTASTIC THAN ANY DREAM MADE OR PAID FOR IN FACTORIES.”</p>
+            <a href="#" class="ctn">Learn more</a>
+        </div>
+    </section>
+
+    <section class="tours">
+        <div class="row">
+            <div class="col content-col">
+                <h1>UPCOMING TOURS & DESTINATION</h1>
+                <div class="line"></div>
+                <p>WE WERE BORN TO BE FREE, TO EXPAND OUR HORIZONS BY GOING WHERE WE HAVE NEVER GONE BEFORE, AND NOT TO HANG OUT IN THE RELATIVE COMFORT AND SAFETY OF THE NEST, THE KNOWN.</p>
+                <a href="#" class="ctn">Learn more</a>
+        </div>
+        <div class="col image-col">
+            <div class="image-gallery">
+                <img
+                    src="Adventure_files/pexels-photo-450062.jpeg">
+                <img
+                    src="Adventure_files/pexels-photo-2087391.jpeg">
+                <img
+                    src="Adventure_files/pexels-photo-2405100.jpeg">
+                <img
+                    src="Adventure_files/pexels-photo-7393102.jpeg">
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="footer">
+        <p>This is a Tourism Website created by using HTML5 and CSS</p>
+        <p>Kamaleshwaran M, Master of Computer Application</p>
+    </section>
+
+    <script>
+        const menuBtn = document.querySelector('.menu-btn')
+        const navlinks = document.querySelector('.nav-links')
+
+        menuBtn.addEventListener('click', () => {
+            navlinks.classList.toggle('mobile-menu')
+        })
+    </script>
+</body>
+
+</html>
