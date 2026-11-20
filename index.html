@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kamaleshwaran M – Backend Software Engineer</title>
+<meta name="description" content="Backend-focused engineer building multi-tenant products with Node.js, TypeScript and MongoDB on SAP BTP.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1f3f2; --surface:#fff; --ink:#16212a; --muted:#56626c; --line:#d5dbd8;
+  --accent:#0f766e; --accent-ink:#fff;
+  --accent-soft:color-mix(in srgb,var(--accent) 14%,var(--surface));
+  --accent-fg:var(--accent);
+  --head:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#10171c;--surface:#18222a;--ink:#e8eeec;--muted:#9aa8b0;--line:#2b3943;--accent-fg:color-mix(in srgb,var(--accent) 55%,#fff)}
+}
+:root[data-theme="dark"]{--bg:#10171c;--surface:#18222a;--ink:#e8eeec;--muted:#9aa8b0;--line:#2b3943;--accent-fg:color-mix(in srgb,var(--accent) 55%,#fff)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--body);transition:background .3s}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent-fg);outline-offset:3px;border-radius:4px}
+.wrap{max-width:980px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;gap:6px;height:56px;overflow-x:auto}
+nav strong{font:700 1.05rem var(--head);margin-right:auto;white-space:nowrap}
+nav a{text-decoration:none;padding:6px 11px;border-radius:99px;font-size:.92rem;color:var(--muted);white-space:nowrap}
+nav a:hover{background:var(--accent-soft);color:var(--ink)}
+#themeBtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:5px 11px;cursor:pointer;font:inherit;font-size:.9rem}
+section{padding:60px 0 8px}
+h1,h2,h3{font-family:var(--head);line-height:1.15;margin:0}
+h1{font-size:clamp(2.3rem,6.5vw,4.2rem);font-weight:700;letter-spacing:-.025em;max-width:16ch}
+h2{font-size:1.9rem;font-weight:700;letter-spacing:-.015em;margin-bottom:22px}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0 0 14px;max-width:68ch}
+.muted{color:var(--muted)}
+.hero{padding-top:70px}
+.hero p.lead{font-size:1.15rem;margin-top:22px}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 34px}
+.btn{display:inline-block;padding:10px 18px;border-radius:8px;border:1.5px solid var(--ink);text-decoration:none;font-weight:500}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-2px)}
+.btn{transition:transform .15s}
+.tenant{background:var(--surface);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:10px;padding:16px 18px;max-width:640px}
+.tenant .row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 8px}
+.chip{font:400 .85rem var(--mono);border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:99px;padding:5px 12px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.tenant code{font:400 .82rem var(--mono);color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin-bottom:14px}
+.card summary{list-style:none;cursor:pointer;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;justify-content:space-between}
+.card summary::-webkit-details-marker{display:none}
+.card summary::after{content:"+";font:500 1.5rem/1 var(--head);color:var(--accent-fg);flex:none}
+.card[open] summary::after{content:"–"}
+.card .body{padding:0 20px 18px;border-top:1px solid var(--line)}
+.card ul{margin:14px 0 0;padding-left:20px}
+.card li{margin-bottom:8px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tags span{font:400 .78rem var(--mono);background:var(--accent-soft);color:var(--ink);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);padding:2px 9px;border-radius:5px}
+.hide{display:none}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.skills div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.skills h3{font-size:1rem;margin-bottom:8px}
+.when{font:400 .85rem var(--mono);color:var(--muted)}
+footer{padding:50px 0 60px;color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <strong>Kamaleshwaran M</strong>
+  <a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  <button id="themeBtn" aria-label="Toggle light and dark theme">Light / Dark</button>
+</div></nav>
+
+<main class="wrap">
+<section class="hero" id="top">
+  <h1>Backend engineer for multi-tenant products.</h1>
+  <p class="lead">I'm Kamaleshwaran, a software engineer in Chennai with 3+ years of experience building and running web and mobile products on Node.js, TypeScript and MongoDB, with React and React Native on the client. I handle API and data design, background processing, SAP SuccessFactors integrations on SAP BTP, CI/CD, and production support.</p>
+  <div class="btns">
+    <a class="btn primary" href="#projects">See my projects</a>
+    <a class="btn" href="mailto:kamaleshwaran0304@gmail.com">Email me</a>
+    <a class="btn" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="btn" href="Kamaleshwaran_M_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <p class="muted">Two products on SAP BTP Cloud Foundry, built in one monorepo with shared CI/CD. Select a card to open the details.</p>
+  <div class="filters" role="group" aria-label="Filter projects">
+    <button class="chip" data-f="all" aria-pressed="true">All</button>
+    <button class="chip" data-f="backend" aria-pressed="false">Backend</button>
+    <button class="chip" data-f="mobile" aria-pressed="false">Mobile</button>
+    <button class="chip" data-f="devops" aria-pressed="false">CI/CD</button>
+  </div>
+
+  <details class="card" data-k="backend mobile">
+    <summary><div><h3>Employee and kiosk time tracking: Expo/React Native app, Express API, OAuth broker and cron worker.</h3>
+      <div class="tags"><span>Node.js</span><span>MongoDB</span><span>React Native</span><span>OAuth</span></div></div></summary>
+    <div class="body"><ul>
+      <li><b>Offline-first punches.</b> Every clock action is saved on the device before any network call, so the UI always reflects local truth.</li>
+      <li><b>Safe on shared kiosks.</b> Each user has their own queue, and shared devices use a separate one, so punches can't mix between users.</li>
+      <li><b>Duplicate-safe delivery to SuccessFactors.</b> Idempotency keys, plus separate tracking for device→API and API→SuccessFactors.</li>
+      <li><b>Stateless OAuth broker.</b> The mobile app never holds the client secret. Rate limiting, schema validation and a tenant allowlist protect the auth surface.</li>
+      <li><b>Automatic data retention.</b> Partial TTL indexes let MongoDB expire old logs itself (13 months for punch and report logs, 3 months for app logs).</li>
+      <li><b>Report pipeline.</b> CSV, password-protected ZIP, S3, then SMTP, with each stage isolated so a mail failure can't lose the file.</li>
+      <li><b>Device features.</b> GPS geofencing, biometric confirmation, English/Spanish, per-tenant feature flags, and one codebase shipping as three store builds (dev, test, prod).</li>
+    </ul></div>
+  </details>
+
+  <details class="card" data-k="backend">
+    <summary><div><h3>Overtime ingest, approval workflow and payroll write-back through SuccessFactors.</h3>
+      <div class="tags"><span>TypeScript</span><span>MongoDB</span><span>OData v2</span><span>React / UI5</span></div></div></summary>
+    <div class="body"><ul>
+      <li><b>Sync you can trust.</b> Per-tenant locks and watermark-based delta sync. The watermark only advances after a successful run.</li>
+      <li><b>Ingest quarantine.</b> Records that can't be placed are stored with reason codes and retried with exponential backoff from 15 minutes up to 6 hours.</li>
+      <li><b>Idempotent payroll write-back.</b> Approved hours are sent to SuccessFactors over OData $batch, with a clear sync-status state machine.</li>
+      <li><b>Immutable audit trail.</b> Approvals and audit records freeze their state at creation. CSV export is bounded to 31 days and 1,000 rows.</li>
+      <li><b>Secure viewer.</b> The SAP approuter requires login on every route with CSRF protection. Roles come from SuccessFactors relationships, so the app has no separate permission system.</li>
+      <li><b>Tenant by hostname.</b> The tenant is resolved from the request host and themed per customer.</li>
+    </ul></div>
+  </details>
+
+  <details class="card" data-k="backend devops">
+    <summary><div><h3>Shared platform and delivery</h3>
+      <div class="muted">The monorepo, multi-tenant data layer and CI/CD behind both products.</div>
+      <div class="tags"><span>MongoDB</span><span>GitHub Actions</span><span>MTA</span><span>Cloud Foundry</span></div></div></summary>
+    <div class="body"><ul>
+      <li><b>Database per tenant.</b> Isolation is built into the connection layer, not left to query filters.</li>
+      <li><b>Stateless cron workers.</b> They run as 16 MB Cloud Foundry apps with per-tenant fan-out, so one failing tenant doesn't stop the rest.</li>
+      <li><b>Reusable GitHub Actions.</b> Path-filtered checks, tag-triggered builds, and manual, gated deploys of the exact archive built for each commit, across 6 deployables.</li>
+      <li><b>Tested at three levels.</b> Mocha, Jest and Vitest suites, from unit tests to API tests with an in-memory MongoDB.</li>
+      <li><b>Spec-driven.</b> Features are written up as specs before they're built, and documented in the repo.</li>
+    </ul></div>
+  </details>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <details class="card" open>
+    <summary><div><h3>Software Engineer, Veritas Prime Labs</h3><div class="when">Jul 2023 – Present · Remote</div></div></summary>
+    <div class="body"><ul>
+      <li>Manage the architecture, API design, background workers, CI/CD and releases for two multi-tenant workforce products that feed payroll through SAP SuccessFactors.</li>
+      <li>Drive technical decisions, code reviews and release planning for the team.</li>
+      <li>Work with AI-assisted development inside a spec-driven workflow.</li>
+    </ul></div>
+  </details>
+  <details class="card">
+    <summary><div><h3>Web Development Intern, NASOTECH LLC</h3><div class="when">Jun 2022 – Nov 2022 · Remote (USA)</div></div></summary>
+    <div class="body"><ul><li>Built landing page UI and worked with fellow interns on web pages using open-source libraries.</li></ul></div>
+  </details>
+  <details class="card">
+    <summary><div><h3>Full Stack (MERN/MEAN) Intern, Steradian Technologies</h3><div class="when">Jan 2022 – Apr 2022 · Chennai</div></div></summary>
+    <div class="body"><ul><li>Built backend APIs with database connectivity and a React frontend for an IoT dashboard, including payment integration and real-time data.</li></ul></div>
+  </details>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div><h3>Backend</h3>Node.js, TypeScript, Express, REST APIs, multi-tenant design, background workers, idempotent sync, OAuth/SSO</div>
+    <div><h3>Databases</h3>MongoDB (Mongoose), PostgreSQL, SQL</div>
+    <div><h3>Platforms</h3>SAP BTP Cloud Foundry, SAP SuccessFactors (OData v2), MTA deployments, approuter</div>
+    <div><h3>Frontend and mobile</h3>React, React Native (Expo, Android and iOS), JavaScript (ES6+), HTML, CSS</div>
+    <div><h3>Delivery and testing</h3>Git, GitHub Actions, monorepos, Mocha, Jest, Vitest, Datadog, AI-assisted development</div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <p><b>MCA, Computer Science</b>, University of Madras <span class="when">2021 – 2023</span><br>
+  <b>BCA, Computer Science</b>, Gurunanak College <span class="when">2018 – 2021</span></p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Open to backend and full-stack roles. The quickest way to reach me is email.</p>
+  <div class="btns">
+    <a class="btn primary" href="mailto:kamaleshwaran0304@gmail.com">kamaleshwaran0304@gmail.com</a>
+    <a class="btn" href="https://github.com/kamaleshwaranM" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/kamaleshwaran-m/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">© <span id="yr"></span> Kamaleshwaran M · Chennai, India</div></footer>
+
+<script>
+const root=document.documentElement;
+const themes={teal:["#0f766e","#fff"],indigo:["#4338ca","#fff"],amber:["#b45309","#fff"]};
+document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>{
+  const t=themes[b.dataset.t];
+  root.style.setProperty("--accent",t[0]);root.style.setProperty("--accent-ink",t[1]);  document.querySelectorAll("[data-t]").forEach(x=>x.setAttribute("aria-pressed",x===b));
+}));
+document.querySelectorAll("[data-f]").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll("[data-f]").forEach(x=>x.setAttribute("aria-pressed",x===b));
+  document.querySelectorAll("#projects .card").forEach(c=>c.classList.toggle("hide",b.dataset.f!=="all"&&!c.dataset.k.split(" ").includes(b.dataset.f)));
+}));
+document.getElementById("themeBtn").addEventListener("click",()=>{
+  const dark=root.dataset.theme?root.dataset.theme==="dark":matchMedia("(prefers-color-scheme:dark)").matches;
+  root.dataset.theme=dark?"light":"dark";
+});
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
